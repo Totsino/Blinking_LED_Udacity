@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -433,6 +434,51 @@
               <FileType>5</FileType>
               <FilePath>.\MCAL\Port_Regs.h</FilePath>
             </File>
+            <File>
+              <FileName>NVIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\NVIC.c</FilePath>
+            </File>
+            <File>
+              <FileName>NVIC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\NVIC.h</FilePath>
+            </File>
+            <File>
+              <FileName>Nvic_Cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Nvic_Cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>Nvic_Cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Nvic_Cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GPT.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPT.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\GPT.h</FilePath>
+            </File>
+            <File>
+              <FileName>GPT__Regs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\GPT__Regs.h</FilePath>
+            </File>
+            <File>
+              <FileName>GPT_Cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\GPT_Cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>GPT_PBcfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GPT_PBcfg.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -465,6 +511,11 @@
               <FileName>tm4c123gh6pm_registers.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\LIBRARIES\tm4c123gh6pm_registers.h</FilePath>
+            </File>
+            <File>
+              <FileName>Mcu_Hw.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Mcu_Hw.h</FilePath>
             </File>
           </Files>
         </Group>

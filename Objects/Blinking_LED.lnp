@@ -3,6 +3,8 @@
 ".\objects\gpio_cfg.o"
 ".\objects\port.o"
 ".\objects\port_pbcfg.o"
+".\objects\nvic.o"
+".\objects\nvic_cfg.o"
 ".\objects\led.o"
 ".\objects\main.o"
 ".\objects\startup_tm4c123.o"

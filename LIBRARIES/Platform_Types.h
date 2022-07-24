@@ -13,7 +13,8 @@
 #ifndef PLATFORM_TYPES_H
 #define PLATFORM_TYPES_H
 
-
+#define WORD_LENGTH_BITS      32u
+#define WORD_LENGTH_BYTES     4u
 /*
  * CPU register type width
  */
