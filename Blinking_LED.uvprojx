@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\LIBRARIES</IncludePath>
+              <IncludePath>.\LIBRARIES;.\HAL;.\MCAL</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -382,15 +382,106 @@
       <Groups>
         <Group>
           <GroupName>MCAL</GroupName>
+          <Files>
+            <File>
+              <FileName>Dio_Cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MCAL\Dio_Cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MCAL\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MCAL\gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO_Cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MCAL\GPIO_Cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO_Regs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MCAL\GPIO_Regs.h</FilePath>
+            </File>
+            <File>
+              <FileName>port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MCAL\port.c</FilePath>
+            </File>
+            <File>
+              <FileName>Port.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MCAL\Port.h</FilePath>
+            </File>
+            <File>
+              <FileName>Port_Cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MCAL\Port_Cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>Port_PBcfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MCAL\Port_PBcfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>Port_Regs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MCAL\Port_Regs.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>SERVICE</GroupName>
         </Group>
         <Group>
           <GroupName>LIBRARIES</GroupName>
+          <Files>
+            <File>
+              <FileName>Common_Macros.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LIBRARIES\Common_Macros.h</FilePath>
+            </File>
+            <File>
+              <FileName>Compiler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LIBRARIES\Compiler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Platform_Types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LIBRARIES\Platform_Types.h</FilePath>
+            </File>
+            <File>
+              <FileName>Std_Types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LIBRARIES\Std_Types.h</FilePath>
+            </File>
+            <File>
+              <FileName>tm4c123gh6pm_registers.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LIBRARIES\tm4c123gh6pm_registers.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>HAL</GroupName>
+          <Files>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HAL\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\HAL\Led.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>APPLICATION</GroupName>
