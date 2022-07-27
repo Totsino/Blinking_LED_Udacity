@@ -1,19 +1,13 @@
-/******************************************************************************
- *
- * Module: GPT
- *
- * File Name: GPT_PBcfg.c
- *
- * Description: Post Build Configuration Source file for TM4C123GH6PM Microcontroller - GPT Driver
- *
- * Author: seif adel
- ******************************************************************************/
-
 #include "GPT.h"
+//#include "ApplicationLogic.h"
+
+
+extern void CallbackFunc(void);
 
 
 
-/* PB structure used with GPT_Init API */
-const Gpt_ConfigType Gpt_Configuration = {
-  
+
+const Gpt_ConfigType GptConfigArr=
+{
+	{GPT_TIMER_A_0_16_32_BIT,16,50,GPT_PRIODIC_TIMER_MODE,CallbackFunc}
 };

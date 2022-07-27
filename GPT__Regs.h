@@ -6,7 +6,7 @@
  *
  * Description: Header file for TM4C123GH6PM Microcontroller - GPT Driver Registers
  *
- * Author: Youssef Hussien
+ * Author: aly maamoun
  ******************************************************************************/
 
 #ifndef GPT_REGS_H
@@ -81,9 +81,12 @@ Systick Timer Registers
 /*****************************************************************************
 PLL Registers
 *****************************************************************************/
+#define SYSCTL_BASE								(*((volatile uint32 *)0x400FE000))
 #define SYSCTL_RIS_REG            (*((volatile uint32 *)0x400FE050))
 #define SYSCTL_RCC_REG            (*((volatile uint32 *)0x400FE060))
 #define SYSCTL_RCC2_REG           (*((volatile uint32 *)0x400FE070))
+#define SYSCTL_RCGC_REG						(*((volatile uint32 *)0x400FE604))
+#define SYSCTL_RCGCW_REG					(*((volatile uint32 *)0x400FE65C))	
 /******************************************************************************/
 
 /* Port Clock register */

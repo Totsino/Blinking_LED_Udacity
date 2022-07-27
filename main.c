@@ -3,6 +3,14 @@
 #include "tm4c123gh6pm_registers.h"
 #include "gpio.h"
 #include "Port.h"
+#include "GPT.h"
+#include "NVIC.h"
+
+/* Configrations of User defined time */
+
+#define APPLICATION_LOGIC_CFG_ON_TIME			4 		//in seconds
+#define	APPLICATION_LOGIC_CFG_OFF_TIME		2			//in seconds
+
 
 void Clock_init(void);
 
@@ -14,16 +22,71 @@ void Clock_init(void){
 }
 
 
+void AppDriversInit(void);
+void CallbackFunc(void);
+static uint8 LocSeconds;
+static boolean LedState=FALSE;
 
 int main(){
+	
+	AppDriversInit();
 while(1){
- Clock_init();
- Port_Init(&Port_Configuration);
- Dio_Init(&Dio_Configuration);
- LED_setOn();
 
+	
+
+	
+	if(LedState)
+	{
+
+		if(LocSeconds>=APPLICATION_LOGIC_CFG_ON_TIME)
+		{
+			LED_setOff();
+			LocSeconds=0;
+			LedState=FALSE;
+		}
+	}
+	else
+	{
+	
+		if(LocSeconds>=APPLICATION_LOGIC_CFG_OFF_TIME)
+		{
+			LED_setOn();
+			LocSeconds=0;
+			LedState=TRUE;
+		}
+	}
 
 }
 
 
 }
+
+
+
+
+void AppDriversInit(void)
+{
+	Clock_init();
+	Port_Init(&Port_Configuration);
+	Dio_Init(&Dio_Configuration);
+	Nvic_Init(&NVIC_Configrations);
+	Gpt_Init(&GptConfigArr);
+	Gpt_EnableNotification(GPT_TIMER_A_0_16_32_BIT);
+	Gpt_StartTimer(GPT_TIMER_A_0_16_32_BIT,62500);
+	
+}
+
+
+
+void CallbackFunc(void)
+{
+   LocSeconds++;
+}
+
+
+
+
+
+
+
+
