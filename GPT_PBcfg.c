@@ -1,5 +1,14 @@
+ /******************************************************************************
+ *
+ * Module: GPT
+ *
+ * File Name: GPT_PBCfg.c
+ *
+ * Author: Youssef hussien
+ ******************************************************************************/
+
 #include "GPT.h"
-//#include "ApplicationLogic.h"
+
 
 
 extern void CallbackFunc(void);
@@ -9,5 +18,5 @@ extern void CallbackFunc(void);
 
 const Gpt_ConfigType GptConfigArr=
 {
-	{GPT_TIMER_A_0_16_32_BIT,16,50,GPT_PRIODIC_TIMER_MODE,CallbackFunc}
+	{GPT_TIMER_A_0_16_32_BIT,50,GPT_PRIODIC_TIMER_MODE,CallbackFunc}
 };

@@ -4,8 +4,6 @@
 *
 * File Name: Port_PBCfg.C
 *
-* Description: Prebuild configure source file for TM4C123GH6PM Microcontroller - Port Driver.
-*
 * Author: Youssef Hussien
 ******************************************************************************/
 

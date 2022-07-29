@@ -4,8 +4,6 @@
  *
  * File Name: gpio.h
  *
- * Description: Header file for TM4C123GH6PM Microcontroller - Gpio Driver
- *
  * Author: Youssef Hussien
  ******************************************************************************/
 

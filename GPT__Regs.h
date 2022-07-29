@@ -1,12 +1,10 @@
-/******************************************************************************
+ /******************************************************************************
  *
  * Module: GPT
  *
  * File Name: GPT_Regs.h
  *
- * Description: Header file for TM4C123GH6PM Microcontroller - GPT Driver Registers
- *
- * Author: aly maamoun
+ * Author: Youssef hussien
  ******************************************************************************/
 
 #ifndef GPT_REGS_H
@@ -33,7 +31,7 @@
 
 
 /******************************************************************************/
-/* GPIO Registers offset addresses */
+/* GPT Registers offset addresses */
 #define GPT_GPTMCFG_REG_OFFSET            0x000
 #define GPT_GPTMTAMR_REG_OFFSET           0x004
 #define GPT_GPTMTBMR_REG_OFFSET           0x008

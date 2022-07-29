@@ -4,8 +4,6 @@
  *
  * File Name: Port_Cfg.h
  *
- * Description: Configure file for TM4C123GH6PM Microcontroller - Port Driver.
- *
  * Author: Youssef Hussien
  ******************************************************************************/
  

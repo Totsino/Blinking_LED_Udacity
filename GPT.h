@@ -1,13 +1,11 @@
-/**********************************************************************************************************************
-
- *  FILE DESCRIPTION
- *  -------------------------------------------------------------------------------------------------------------------
- *         File:  <GPT.h>
- *       Module:  GPT: General Purpose Timers
+ /******************************************************************************
  *
- *  Description:  Header file for GPT     
- *  
- *********************************************************************************************************************/
+ * Module: GPT
+ *
+ * File Name: GPT.h
+ *
+ * Author: Youssef hussien
+ ******************************************************************************/
 #ifndef GPT_H
 #define GPT_H
 
@@ -65,7 +63,6 @@
 #define RCGC_BITS 6
 
 #define GPT_START_COUNT_ENABLE 	1
-#define TIMER_COUNT							12
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
  *********************************************************************************************************************/
@@ -75,7 +72,6 @@
  *  GLOBAL DATA TYPES AND STRUCTURES
  *********************************************************************************************************************/
 typedef uint32 	Gpt_ValueType;
-typedef uint8		Gpt_Frequency;
 
 typedef enum 
 {
@@ -136,7 +132,6 @@ typedef enum
 typedef struct
 {
 	Gpt_ChannelType GptChannelId						;
-	Gpt_Frequency		GptChannelTickFrequency	;
 	Gpt_ValueType		GptChannelTickValueMax	;
 	Gpt_Mode				GptChannelMode					;
 	void						(*GptNotifications)(void);

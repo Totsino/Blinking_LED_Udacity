@@ -27,8 +27,8 @@ Project File Date:  07/28/2022
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-GPT.c(15): warning: In file included from...
-./GPT.h(17): warning: In file included from...
+GPT.c(13): warning: In file included from...
+./GPT.h(15): warning: In file included from...
 ./LIBRARIES\tm4c123gh6pm_registers.h(4): warning: In file included from...
 ./LIBRARIES/Std_Types.h(16): warning: In file included from...
 ./LIBRARIES/Platform_Types.h(63): warning: 'long long' is an extension when C99 mode is not enabled [-Wlong-long]
@@ -37,289 +37,292 @@ typedef unsigned long long    uint64;         /*       0..18446744073709551615  
 ./LIBRARIES/Platform_Types.h(64): warning: 'long long' is an extension when C99 mode is not enabled [-Wlong-long]
 typedef signed long long      sint64;         /* -9223372036854775808 .. 9223372036854775807 */
                ^
-GPT.c(15): warning: In file included from...
-./GPT.h(20): warning: In file included from...
-./GPT_Cfg.h(17): warning: no newline at end of file [-Wnewline-eof]
+GPT.c(13): warning: In file included from...
+./GPT.h(18): warning: In file included from...
+./GPT_Cfg.h(26): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-GPT.c(15): warning: In file included from...
-./GPT.h(21): warning: In file included from...
-./GPT__Regs.h(93): warning: 'SYSCTL_REGCGC2_REG' macro redefined [-Wmacro-redefined]
+GPT.c(13): warning: In file included from...
+./GPT.h(19): warning: In file included from...
+./GPT__Regs.h(91): warning: 'SYSCTL_REGCGC2_REG' macro redefined [-Wmacro-redefined]
 #define SYSCTL_REGCGC2_REG        (*((volatile uint32 *)0x400FE608))
         ^
 ./LIBRARIES\tm4c123gh6pm_registers.h(138): note: previous definition is here
 #define SYSCTL_REGCGC2_REG        (*((volatile uint32 *)0x400FE108))
         ^
-GPT.c(15): warning: In file included from...
-./GPT.h(21): warning: In file included from...
-./GPT__Regs.h(95): warning: no newline at end of file [-Wnewline-eof]
+GPT.c(13): warning: In file included from...
+./GPT.h(19): warning: In file included from...
+./GPT__Regs.h(93): warning: no newline at end of file [-Wnewline-eof]
 #endif /* PORT_REGS_H */
                         ^
-GPT.c(15): warning: In file included from...
-./GPT.h(106): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+GPT.c(13): warning: In file included from...
+./GPT.h(102): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
         GPT_WIDE_TIMER_B_5_32_64_BIT            ,
                                                 ^
-./GPT.h(114): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+./GPT.h(110): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
         GPT_MODE_SLEEP  ,
                         ^
-./GPT.h(125): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+./GPT.h(121): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
         GPT_PWM_TIMER_MODR                              ,
                                                         ^
-./GPT.h(131): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+./GPT.h(127): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
         GPT_EDGE_COUNT_TIMER_MODE       =0x13,
                                              ^
-./GPT.h(140): warning: padding struct 'Gpt_ConfigChannel' with 2 bytes to align 'GptChannelTickValueMax' [-Wpadded]
+./GPT.h(135): warning: padding struct 'Gpt_ConfigChannel' with 3 bytes to align 'GptChannelTickValueMax' [-Wpadded]
         Gpt_ValueType           GptChannelTickValueMax  ;
                                 ^
-./GPT.h(142): warning: padding struct 'Gpt_ConfigChannel' with 3 bytes to align 'GptNotifications' [-Wpadded]
+./GPT.h(137): warning: padding struct 'Gpt_ConfigChannel' with 3 bytes to align 'GptNotifications' [-Wpadded]
         void                                            (*GptNotifications)(void);
                                                           ^
-GPT.c(39): warning: no previous extern declaration for non-static variable 'LocCounter' [-Wmissing-variable-declarations]
+GPT.c(37): warning: no previous extern declaration for non-static variable 'LocCounter' [-Wmissing-variable-declarations]
 uint8                                   LocCounter=0;
                                         ^
-GPT.c(39): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPT.c(37): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 uint8                                   LocCounter=0;
 ^
-GPT.c(129): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0);
+GPT.c(101): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+                        uint8 TempChannelID = LocChannelId-6;
+                              ^
+GPT.c(114): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0);  /* TAEN */
                         ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(129): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0);
+GPT.c(114): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0);  /* TAEN */
                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(133): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8);
+GPT.c(118): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8);   /* TBEN */
                         ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(133): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8);
+GPT.c(118): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8);   /* TBEN */
                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(137): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(123): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                 SET_BIT         (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCFG_REG_OFFSET),BIT2);
                 ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(138): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(124): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                 CLEAR_BIT       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCFG_REG_OFFSET),BIT1);
                 ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(138): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+GPT.c(124): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                 CLEAR_BIT       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCFG_REG_OFFSET),BIT1);
                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(139): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                CLEAR_BIT       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCFG_REG_OFFSET),BIT0);
+GPT.c(125): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                CLEAR_BIT       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCFG_REG_OFFSET),BIT0);      /* 0x4 */
                 ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(139): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLEAR_BIT       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCFG_REG_OFFSET),BIT0);
+GPT.c(125): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLEAR_BIT       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCFG_REG_OFFSET),BIT0);      /* 0x4 */
                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(146): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(133): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT0);
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(147): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);
+GPT.c(134): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);  /* 0x1 */
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(147): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);
+GPT.c(134): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);  /* 0x1 */
                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(151): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(138): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
+#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
+                          ^~~
+GPT.c(139): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT0);  /* 0x2 */
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                            ^~~
+GPT.c(139): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT0);  /* 0x2 */
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                               ~~ ^~~~~~~~~
+GPT.c(143): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
+#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
+                          ^~~
+GPT.c(144): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);    /* 0x3 */                       
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
 GPT.c(152): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT0);
-                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                            ^~~
-GPT.c(152): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT0);
-                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                               ~~ ^~~~~~~~~
-GPT.c(156): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);
-                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
-                          ^~~
+                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAPR_REG_OFFSET)=0xFF;
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 GPT.c(157): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT1);                            
-                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
-                          ^~~
+                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAPR_REG_OFFSET)=0xFFFF;
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 GPT.c(162): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                        *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAPR_REG_OFFSET)=0xFF;
-                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(165): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAV_REG_OFFSET)=LocTicks&0xFFFF;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(169): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=LocTicks;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(174): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT4);
+                        *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=LocTicks&0xFFFF;
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPT.c(168): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT4);  /* Counting Up */
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(174): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT4);
+GPT.c(168): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                                CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT4);  /* Counting Up */
                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(178): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT4);
+GPT.c(172): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT4);  /*Counting Down*/
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(183): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(179): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT7);
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(183): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+GPT.c(179): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                                 CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT7);
                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(187): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(183): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT7);                            
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(192): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(190): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT5);    
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(193): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(191): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT9);    
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(197): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(195): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 CLEAR_BIT                       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT5);    
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(197): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+GPT.c(195): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                                 CLEAR_BIT                       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT5);    
                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(198): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(196): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 CLEAR_BIT                       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT9);                                    
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(198): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+GPT.c(196): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                                 CLEAR_BIT                       (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT9);                                    
                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(209): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(208): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT0);
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(210): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(209): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT1);
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(210): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+GPT.c(209): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                                 CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT1);
                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
+GPT.c(213): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT1);
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
+#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
+                          ^~~
 GPT.c(214): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT1);
-                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
-                          ^~~
-GPT.c(215): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT0);
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(215): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+GPT.c(214): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
                                 CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT0);
                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(219): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(218): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT1);
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(220): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(219): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT1);                            
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
 GPT.c(226): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                        *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBPR_REG_OFFSET)=0xFF;
-                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(229): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBV_REG_OFFSET)=LocTicks&0xFFFF;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBPR_REG_OFFSET)=0xFF;
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPT.c(230): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBPR_REG_OFFSET)=0xFFFF;
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 GPT.c(233): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=LocTicks;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBILR_REG_OFFSET)=LocTicks&0xFFFF;
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 GPT.c(237): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                                 CLEAR_BIT               (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT4);
                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -392,299 +395,281 @@ GPT.c(261): warning: implicit conversion changes signedness: 'int' to 'unsigned 
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(267): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                SET_BIT                 (*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMICR_REG_OFFSET),BIT0);
-                ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
-                          ^~~
-GPT.c(295): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(288): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT0);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                            ^~~
+GPT.c(288): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT0);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                               ~~ ^~~~~~~~~
+GPT.c(289): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT1);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                            ^~~
+GPT.c(289): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT1);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                               ~~ ^~~~~~~~~
+GPT.c(290): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT2);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                            ^~~
+GPT.c(290): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT2);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                               ~~ ^~~~~~~~~
+GPT.c(291): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT3);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                            ^~~
+GPT.c(291): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT3);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                               ~~ ^~~~~~~~~
+GPT.c(292): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT4);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                            ^~~
+GPT.c(292): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT4);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                               ~~ ^~~~~~~~~
+GPT.c(294): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT8);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                            ^~~
+GPT.c(294): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT8);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
+#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+                               ~~ ^~~~~~~~~
+GPT.c(295): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT9);
         ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
 GPT.c(295): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT0);
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT9);
         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
 GPT.c(296): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT1);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT10);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
 GPT.c(296): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT1);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT10);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
 GPT.c(297): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT2);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT11);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
 GPT.c(297): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT2);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                               ~~ ^~~~~~~~~
-GPT.c(298): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT3);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                            ^~~
-GPT.c(298): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT3);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT11);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
 GPT.c(299): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT4);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT16);
+        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
 GPT.c(299): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT4);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                               ~~ ^~~~~~~~~
-GPT.c(301): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT8);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                            ^~~
-GPT.c(301): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT8);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                               ~~ ^~~~~~~~~
-GPT.c(302): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT9);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                            ^~~
-GPT.c(302): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT9);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                               ~~ ^~~~~~~~~
-GPT.c(303): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT10);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                            ^~~
-GPT.c(303): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT10);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                               ~~ ^~~~~~~~~
-GPT.c(304): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT11);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                            ^~~
-GPT.c(304): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT11);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                               ~~ ^~~~~~~~~
-GPT.c(306): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-        CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT16);
-        ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
-                            ^~~
-GPT.c(306): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
         CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT16);
         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(328): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(321): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT0);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(329): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(322): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT1);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(330): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(323): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT2);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(331): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(324): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT3);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(332): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(325): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT4);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(334): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(327): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT8);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(335): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(328): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT9);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(336): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(329): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT10);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(337): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(330): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT11);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(339): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(332): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
         SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMIMR_REG_OFFSET),BIT16);
         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(371): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(364): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                 SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAMR_REG_OFFSET),BIT5);
                 ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(372): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(366): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                 SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0);
                 ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(376): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=Value&0xFFFF;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(380): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=Value;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(386): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(369): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                        *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=Value&0xFFFF;
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPT.c(375): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                 SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBMR_REG_OFFSET),BIT5);
                 ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(387): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+GPT.c(376): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
                 SET_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8);
                 ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(17): note: expanded from macro 'SET_BIT'
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
                           ^~~
-GPT.c(391): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBILR_REG_OFFSET)=Value&0xFFFF;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(395): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBILR_REG_OFFSET)=Value;
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-GPT.c(426): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0);
+GPT.c(379): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                *(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBILR_REG_OFFSET)=Value&0xFFFF;
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GPT.c(409): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0); /* TAEN */
                 ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(426): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0);
+GPT.c(409): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT0); /* TAEN */
                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(430): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
-                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8);
+GPT.c(413): warning: cast from 'volatile uint8 *' (aka 'volatile unsigned char *') to 'volatile uint32 *' (aka 'volatile unsigned long *') increases required alignment from 1 to 4 [-Wcast-align]
+                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8); /* TBEN */
                 ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                             ^~~
-GPT.c(430): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
-                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8);
+GPT.c(413): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                CLEAR_BIT(*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMCTL_REG_OFFSET),BIT8); /* TBEN */
                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./LIBRARIES\Common_Macros.h(20): note: expanded from macro 'CLEAR_BIT'
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
                                ~~ ^~~~~~~~~
-GPT.c(40): warning: no previous extern declaration for non-static variable 'LocChannelId' [-Wmissing-variable-declarations]
+GPT.c(38): warning: no previous extern declaration for non-static variable 'LocChannelId' [-Wmissing-variable-declarations]
 Gpt_ChannelType LocChannelId;
                 ^
+GPT.c(38): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Gpt_ChannelType LocChannelId;
+^
+GPT.c(39): warning: no previous extern declaration for non-static variable 'LocTicks' [-Wmissing-variable-declarations]
+Gpt_ValueType   LocTicks                ;
+                ^
+GPT.c(39): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Gpt_ValueType   LocTicks                ;
+^
+GPT.c(40): warning: no previous extern declaration for non-static variable 'LocMode' [-Wmissing-variable-declarations]
+Gpt_Mode                                LocMode                 ;
+                                        ^
 GPT.c(40): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-Gpt_ChannelType LocChannelId;
+Gpt_Mode                                LocMode                 ;
 ^
-GPT.c(41): warning: no previous extern declaration for non-static variable 'LocFrequency' [-Wmissing-variable-declarations]
-Gpt_Frequency           LocFrequency;
-                        ^
+GPT.c(41): warning: no previous extern declaration for non-static variable 'LocBaseAdd' [-Wmissing-variable-declarations]
+uint32                                  LocBaseAdd      ;
+                                        ^
 GPT.c(41): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-Gpt_Frequency           LocFrequency;
+uint32                                  LocBaseAdd      ;
 ^
-GPT.c(42): warning: no previous extern declaration for non-static variable 'LocTicks' [-Wmissing-variable-declarations]
-Gpt_ValueType   LocTicks                ;
-                ^
+GPT.c(42): warning: no previous extern declaration for non-static variable 'LocTimerAB' [-Wmissing-variable-declarations]
+uint8                                   LocTimerAB      ;
+                                        ^
 GPT.c(42): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-Gpt_ValueType   LocTicks                ;
-^
-GPT.c(43): warning: no previous extern declaration for non-static variable 'LocMode' [-Wmissing-variable-declarations]
-Gpt_Mode                                LocMode                 ;
-                                        ^
-GPT.c(43): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-Gpt_Mode                                LocMode                 ;
-^
-GPT.c(44): warning: no previous extern declaration for non-static variable 'LocBaseAdd' [-Wmissing-variable-declarations]
-uint32                                  LocBaseAdd      ;
-                                        ^
-GPT.c(44): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint32                                  LocBaseAdd      ;
-^
-GPT.c(45): warning: no previous extern declaration for non-static variable 'LocTimerAB' [-Wmissing-variable-declarations]
-uint8                                   LocTimerAB      ;
-                                        ^
-GPT.c(45): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 uint8                                   LocTimerAB      ;
 ^
-GPT.c(46): warning: no previous extern declaration for non-static variable 'LocTimerType' [-Wmissing-variable-declarations]
+GPT.c(43): warning: no previous extern declaration for non-static variable 'LocTimerType' [-Wmissing-variable-declarations]
 uint8                                           LocTimerType;
                                                 ^
-GPT.c(46): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+GPT.c(43): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 uint8                                           LocTimerType;
 ^
-117 warnings generated.
+114 warnings generated.
 compiling GPT.c...
 linking...
-Program Size: Code=5698 RO-data=1034 RW-data=0 ZI-data=760  
-".\Objects\Blinking_LED.axf" - 0 Error(s), 117 Warning(s).
+Program Size: Code=5530 RO-data=1034 RW-data=0 ZI-data=752  
+".\Objects\Blinking_LED.axf" - 0 Error(s), 114 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -710,8 +695,8 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:1.0.1
-      Source file:   Device/Source/ARM/startup_TM4C123.s
       Include file:  Device/Include/TM4C123/TM4C123.h
+      Source file:   Device/Source/ARM/startup_TM4C123.s
       Source file:   Device/Source/system_TM4C123.c
 Build Time Elapsed:  00:00:01
 </pre>

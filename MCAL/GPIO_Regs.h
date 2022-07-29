@@ -1,12 +1,10 @@
  /******************************************************************************
  *
- * Module: GPIO
+ * Module: Dio
  *
  * File Name: GPIO_Regs.h
  *
- * Description: Header file for TM4C123GH6PM Microcontroller - Dio Driver Registers
- *
- * Author: Mohamed Tarek
+ * Author: Youssef Hussien
  ******************************************************************************/
 
 #ifndef DIO_REGS_H

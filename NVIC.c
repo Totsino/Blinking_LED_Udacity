@@ -4,8 +4,6 @@
  *
  * File Name: NVIC.c
  *
- * Description: NVIC driver
- *
  * Author: Youssef hussien
  ******************************************************************************/
 

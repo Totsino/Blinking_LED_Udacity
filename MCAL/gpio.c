@@ -4,8 +4,6 @@
  *
  * File Name: Dio.c
  *
- * Description: Source file for TM4C123GH6PM Microcontroller - Dio Driver
- *
  * Author: Youssef Hussien
  ******************************************************************************/
 

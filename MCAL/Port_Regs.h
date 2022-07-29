@@ -4,8 +4,6 @@
  *
  * File Name: Port_Regs.h
  *
- * Description: Port Driver Registers
- *
  * Author: Youssef Hussien
  ******************************************************************************/
 

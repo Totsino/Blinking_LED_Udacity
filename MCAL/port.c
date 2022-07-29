@@ -4,8 +4,6 @@
 *
 * File Name: Port.c
 *
-* Description: Source file for TM4C123GH6PM Microcontroller - Port Driver.
-*
 * Author: Youssef Hussien
 ******************************************************************************/
 
