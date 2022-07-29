@@ -14,35 +14,7 @@
  *********************************************************************************************************************/
 #include "GPT.h"
 
-/**********************************************************************************************************************
-*  LOCAL MACROS CONSTANT\FUNCTION
-*********************************************************************************************************************/
-#define BIT0	0
-#define BIT1	1
-#define BIT2	2
-#define BIT3	3
-#define BIT4	4
-#define BIT5	5
-#define BIT6	6
-#define BIT7	7
-#define BIT8	8
-#define BIT9	9
-#define BIT10	10
-#define BIT11	11
-#define BIT12	12
-#define BIT13	13
-#define BIT14	14
-#define BIT15	15
-#define BIT16	16
-#define TIMERA 0
-#define TIMERB 1
-#define TIMER16 0
-#define TIMER32 1
 
-#define RCGC_BITS 6
-
-#define GPT_START_COUNT_ENABLE 	1
-#define TIMER_COUNT							12
 /**********************************************************************************************************************
  *  LOCAL DATA 
  *********************************************************************************************************************/
@@ -105,19 +77,20 @@ static const Gpt_ConfigChannel * Channel;
 void Gpt_Init(const Gpt_ConfigType* ConfigPtr)  
 {
 	global_Config=ConfigPtr;
+	Channel    = ConfigPtr->channels;
 	if(global_Config!=NULL_PTR)
 	{
 		
 		for(;LocCounter<GPT_CFG_CONFIGURED_CHANNELS;LocCounter++)
 		{
-			Channel=ConfigPtr[LocCounter].channels;
 			
-			LocChannelId								=Channel->GptChannelId										;
-			LocFrequency								=Channel->GptChannelTickFrequency					;
-			LocMode											=Channel->GptChannelMode									;
-			LocTicks										=Channel->GptChannelTickValueMax					;
+			/* ****************************************************************** */
+			LocChannelId								=Channel[LocCounter].GptChannelId										;
+			LocFrequency								=Channel[LocCounter].GptChannelTickFrequency					;
+			LocMode											=Channel[LocCounter].GptChannelMode									;
+			LocTicks										=Channel[LocCounter].GptChannelTickValueMax					;
 			LocBaseAdd									=GPT_TimerChannelBaseAddress[LocChannelId%12];
-			GptNotification[LocChannelId%12]	=Channel->GptNotifications								;
+			GptNotification[LocChannelId%12]	=Channel[LocCounter].GptNotifications								;
 			/*Configuration parameters now are saved into the local variables and the base address of the timer is saved*/
 					
 		if(LocChannelId/TIMER_COUNT)
@@ -193,7 +166,7 @@ void Gpt_Init(const Gpt_ConfigType* ConfigPtr)
 			}
 			else
 			{
-				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAV_REG_OFFSET)=LocTicks;
+				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=LocTicks;
 			}
 			
 			if(GPT_CFG_COUNT_DIRECTION==GPT_TIMER_COUNT_DOWN)
@@ -257,7 +230,7 @@ void Gpt_Init(const Gpt_ConfigType* ConfigPtr)
 			}
 			else
 			{
-				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBV_REG_OFFSET)=LocTicks;
+				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=LocTicks;
 			}
 			if(GPT_CFG_COUNT_DIRECTION==GPT_TIMER_COUNT_DOWN)
 			{
@@ -400,11 +373,11 @@ void Gpt_StartTimer(Gpt_ChannelType ChannelId,Gpt_ValueType Value)
 		
 			if(LocTimerType==TIMER16)
 			{
-				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAV_REG_OFFSET)=Value&0xFFFF;
+				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=Value&0xFFFF;
 			}
 			else
 			{
-				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAV_REG_OFFSET)=Value;
+				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTAILR_REG_OFFSET)=Value;
 			}
 	}
 	else
@@ -415,11 +388,11 @@ void Gpt_StartTimer(Gpt_ChannelType ChannelId,Gpt_ValueType Value)
 		
 			if(LocTimerType==TIMER16)
 			{
-				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBV_REG_OFFSET)=Value&0xFFFF;
+				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBILR_REG_OFFSET)=Value&0xFFFF;
 			}
 			else
 			{
-				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBV_REG_OFFSET)=Value;
+				*(volatile uint32 *)((volatile uint8 *)LocBaseAdd + GPT_GPTMTBILR_REG_OFFSET)=Value;
 			}
 	}	
 	

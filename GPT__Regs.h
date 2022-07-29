@@ -90,6 +90,6 @@ PLL Registers
 /******************************************************************************/
 
 /* Port Clock register */
-#define SYSCTL_REGCGC2_REG        (*((volatile uint32 *)0x400FE108))
+#define SYSCTL_REGCGC2_REG        (*((volatile uint32 *)0x400FE608))
 
 #endif /* PORT_REGS_H */

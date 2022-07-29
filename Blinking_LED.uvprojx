@@ -512,11 +512,6 @@
               <FileType>5</FileType>
               <FilePath>.\LIBRARIES\tm4c123gh6pm_registers.h</FilePath>
             </File>
-            <File>
-              <FileName>Mcu_Hw.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Mcu_Hw.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

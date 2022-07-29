@@ -66,15 +66,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
       *(volatile uint32 *)((volatile uint8 *)PORT_PTR + PORT_LOCK_REG_OFFSET) = 0x4C4F434B;                     /* Unlock the GPIOCR register */   
       SET_BIT(*(volatile uint32 *)((volatile uint8 *)PORT_PTR + PORT_COMMIT_REG_OFFSET) , Channel_PORT[i].pin_num);  /* Set the corresponding bit in GPIOCR register to allow changes on this pin */
     }
-    else if( (Channel_PORT[i].port_num == 2) && (Channel_PORT[i].pin_num <= 3) ) /* PC0 to PC3 */
-    {
-      /* Do Nothing ...  this is the JTAG pins */
-    }
-    else
-    {
-      /* MISRA */
-    }
-    
+
     
     /*checking if the mode is analog*/
     if(Channel_PORT[i].pin_mode==PortConfig_Mode_ADC)

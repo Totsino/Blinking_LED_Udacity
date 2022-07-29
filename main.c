@@ -8,14 +8,19 @@
 
 /* Configrations of User defined time */
 
-#define APPLICATION_LOGIC_CFG_ON_TIME			4 		//in seconds
+#define APPLICATION_LOGIC_CFG_ON_TIME			5 		//in seconds
 #define	APPLICATION_LOGIC_CFG_OFF_TIME		2			//in seconds
 
 
 void Clock_init(void);
 
 void Clock_init(void){
-  SYSCTL_REGCGC2_REG|=(0x3F);
+	
+	/* Activate all Ports Clock */
+  SYSCTL_REGCGC2_REG |=(0x3F);
+	
+	
+	/* Delay 3 System Clock cycles before accessing */
   volatile unsigned long delay = 0;
   delay = SYSCTL_REGCGC2_REG;
 

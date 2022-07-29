@@ -34,6 +34,38 @@
 #define GPT_DISABLE						0
 #define GPT_SNAPSHOT_ENABLE		1
 #define GPT_SNAPSHOT_DISABLE	0
+
+
+
+/**********************************************************************************************************************
+*  LOCAL MACROS CONSTANT\FUNCTION
+*********************************************************************************************************************/
+#define BIT0	0
+#define BIT1	1
+#define BIT2	2
+#define BIT3	3
+#define BIT4	4
+#define BIT5	5
+#define BIT6	6
+#define BIT7	7
+#define BIT8	8
+#define BIT9	9
+#define BIT10	10
+#define BIT11	11
+#define BIT12	12
+#define BIT13	13
+#define BIT14	14
+#define BIT15	15
+#define BIT16	16
+#define TIMERA 0
+#define TIMERB 1
+#define TIMER16 0
+#define TIMER32 1
+
+#define RCGC_BITS 6
+
+#define GPT_START_COUNT_ENABLE 	1
+#define TIMER_COUNT							12
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
  *********************************************************************************************************************/
