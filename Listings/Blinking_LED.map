@@ -66,7 +66,6 @@ Section Cross References
     led.o(.ARM.exidx.text.LED_refreshOutput) refers to led.o(.text.LED_refreshOutput) for [Anonymous Symbol]
     led.o(.text.LED_toggle) refers to gpio.o(.text.Dio_FlipChannel) for Dio_FlipChannel
     led.o(.ARM.exidx.text.LED_toggle) refers to led.o(.text.LED_toggle) for [Anonymous Symbol]
-    main.o(.ARM.exidx.text.Clock_init) refers to main.o(.text.Clock_init) for [Anonymous Symbol]
     main.o(.text.main) refers to main.o(.text.AppDriversInit) for AppDriversInit
     main.o(.text.main) refers to main.o(.bss.LedState) for LedState
     main.o(.text.main) refers to main.o(.bss.LocSeconds) for LocSeconds
@@ -85,6 +84,7 @@ Section Cross References
     main.o(.text.AppDriversInit) refers to gpt.o(.text.Gpt_EnableNotification) for Gpt_EnableNotification
     main.o(.text.AppDriversInit) refers to gpt.o(.text.Gpt_StartTimer) for Gpt_StartTimer
     main.o(.ARM.exidx.text.AppDriversInit) refers to main.o(.text.AppDriversInit) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.Clock_init) refers to main.o(.text.Clock_init) for [Anonymous Symbol]
     main.o(.text.CallbackFunc) refers to main.o(.bss.LocSeconds) for LocSeconds
     main.o(.ARM.exidx.text.CallbackFunc) refers to main.o(.text.CallbackFunc) for [Anonymous Symbol]
     startup_tm4c123.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -253,9 +253,9 @@ Removing Unused input sections from the image.
     Removing led.o(.text.LED_toggle), (18 bytes).
     Removing led.o(.ARM.exidx.text.LED_toggle), (8 bytes).
     Removing main.o(.text), (0 bytes).
-    Removing main.o(.ARM.exidx.text.Clock_init), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.exidx.text.AppDriversInit), (8 bytes).
+    Removing main.o(.ARM.exidx.text.Clock_init), (8 bytes).
     Removing main.o(.ARM.exidx.text.CallbackFunc), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing system_tm4c123.o(.text), (0 bytes).
@@ -759,10 +759,10 @@ Memory Map of the image
     0x0000047c   0x0000047c   0x00000002   Code   RO          263    .text               c_w.l(use_no_semi.o)
     0x0000047e   0x0000047e   0x00000000   Code   RO          265    .text               c_w.l(indicate_semi.o)
     0x0000047e   0x0000047e   0x00000002   PAD
-    0x00000480   0x00000480   0x0000004e   Code   RO          117    .text.AppDriversInit  main.o
+    0x00000480   0x00000480   0x0000004e   Code   RO          115    .text.AppDriversInit  main.o
     0x000004ce   0x000004ce   0x00000002   PAD
     0x000004d0   0x000004d0   0x00000010   Code   RO          119    .text.CallbackFunc  main.o
-    0x000004e0   0x000004e0   0x0000001e   Code   RO          113    .text.Clock_init    main.o
+    0x000004e0   0x000004e0   0x0000001e   Code   RO          117    .text.Clock_init    main.o
     0x000004fe   0x000004fe   0x00000002   PAD
     0x00000500   0x00000500   0x00000020   Code   RO            2    .text.Dio_Init      gpio.o
     0x00000520   0x00000520   0x000000e6   Code   RO            4    .text.Dio_WriteChannel  gpio.o
@@ -781,7 +781,7 @@ Memory Map of the image
     0x00001640   0x00001640   0x0000010c   Code   RO          144    .text.SystemInit    system_tm4c123.o
     0x0000174c   0x0000174c   0x00000022   Code   RO           73    .text.TIMER0A_Handler  gpt.o
     0x0000176e   0x0000176e   0x00000002   PAD
-    0x00001770   0x00001770   0x0000007c   Code   RO          115    .text.main          main.o
+    0x00001770   0x00001770   0x0000007c   Code   RO          113    .text.main          main.o
     0x000017ec   0x000017ec   0x0000001a   Code   RO          246    x$fpl$fpinit        fz_wm.l(fpinit.o)
     0x00001806   0x00001806   0x00000002   Data   RO           19    .rodata.Dio_Configuration  gpio_cfg.o
     0x00001808   0x00001808   0x00000060   Data   RO           84    .rodata.GPT_TimerChannelBaseAddress  gpt.o

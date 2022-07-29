@@ -18,5 +18,5 @@ extern void CallbackFunc(void);
 
 const Gpt_ConfigType GptConfigArr=
 {
-	{GPT_TIMER_A_0_16_32_BIT,50,GPT_PRIODIC_TIMER_MODE,CallbackFunc}
+	{GPT_TIMER_A_0_16_32_BIT,200,GPT_PRIODIC_TIMER_MODE,CallbackFunc}
 };
